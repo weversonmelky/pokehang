@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>POKE-HANGED</title>
+</head>
+<body>
+    <header>
+       
+    </header>
+
+    <main>
+        <div class="circle">
+            <img src="assets/svg/circle.svg" alt="">
+        </div>
+        <div class="container-pokemon-pokedex">
+            <div class="pokemon-container">
+                <img src="" alt="pokemon" id="image-pokemon">
+                <div ></div>
+            </div>
+        </div>
+        <div class="word"></div>
+        
+        <div class="letter">
+            <input type="text" id="input" name="campoTexto" required>
+            <button onclick="verifyLetter()" class="verify-button" type="button">Verificar</button>
+        </div>
+        
+        <div class="alert">
+            <span id="alert"></span>
+        </div>
+        
+        <div class="container-results">
+            <div class="results">
+                <ul>
+                    <li class="container-chances">
+                        Chances: <span id="chance"><span>
+                    </li>
+                    <li class="container-lettersTyped">
+                        Letras digitadas: <span id="lettersTyped"></span>
+                    </li>
+                    <li class="container-wordsTyped">
+                        Pokemons digitados: <span id="wordsTyped"> </span>
+                    </li>
+                </ul>
+            </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

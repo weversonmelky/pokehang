@@ -1,0 +1,123 @@
+
+*{  
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    color: white;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #212121;
+}
+
+
+header{
+    background-color:  #4AAEDB;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.
+    2);
+    margin-bottom: 2rem;
+}
+
+main{ 
+    background: #8C0738;
+    width: 100%;
+    max-width: 450px;
+    margin: 56px auto 0px;
+    padding: 24px;
+    border-radius: 10px;
+}
+
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 2px;
+    word-spacing: 20px;
+    color: #F89912;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 1rem 1rem 2rem 1rem;
+}
+
+h2{
+    text-align: center;
+    padding:20px;
+    padding-bottom: 1rem ;
+}
+
+
+.word {
+    letter-spacing:.2rem;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+}
+.container-pokemon-pokedex{
+    position: relative;
+    left: 25%;
+    display: inline-block;  
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.background{
+    background-color: white;
+    border: solid white 8px;
+    border-radius: 4px;
+}
+
+.pokemon-container{
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    height: 9rem;
+    width: 12rem;
+    background-image: url(assets/images/background-pokedex\ \(1\)\ \(1\).jpg);
+    position: relative;
+    border: solid white 8px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#image-pokemon{
+    height: 120px;
+    filter: drop-shadow(0px 10px 4px rgba(0, 0, 0, 0.2));
+}
+
+.container-results {
+    margin: auto;
+    background-color: rgb(218, 213, 189) ;
+    width: 90%;
+    border: solid #6F6982 .3rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.letter{
+    margin: auto;
+}
+
+.results{
+    margin: 20px;
+}
+
+ul{
+    list-style: none;
+    display: inline-block;
+}
+
+li{
+    margin-bottom: 7px;
+    list-style: none;
+    transition: list-style-image 2s;
+}
+
+li:hover{
+    list-style-image: url('assets/svg/triangle-right.svg');
+}
+
+li span {
+}
+
+.container-lettersTyped, #lettersTyped, .container-wordsTyped, #wordsTyped, .container-chances, #chance{
+    color: #2b2932;
+}
