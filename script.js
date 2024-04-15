@@ -35,7 +35,7 @@ async function getRandomPokemon() {
 }
 
 async function getPokeId(pokeId) {
-  const pokeIdUrl = `https://pokeapi.co/api/v2/pokemon/${pokeId}`
+  const pokeIdUrl = `https://pokeapi.co/api/v2/pokemon/${1021}`
 
   try {
     const response = await fetch(pokeIdUrl)
@@ -63,13 +63,27 @@ async function getPokeId(pokeId) {
     pokemonImage.src = urlimagePokemon
 
     let hiddenWord = "_".repeat(randomPokemon.length)
-    wordDisplay.innerHTML = hiddenWord
     let remainingChances = 6
     remainingChancesDisplay.innerHTML = remainingChances
 
     console.log(randomPokemon)
     let guessedLetters = []
     let guessedWords = []
+
+    function addhifen(word, pokemon) {
+      console.log(word, pokemon)
+      for (let i = 0; i < pokemon.length; i++) {
+        if (pokemon[i] === "-") {
+          word = word.substring(0, i) + "-" + word.substring(i + 1)
+        }
+      }
+      return word
+    }
+
+    hiddenWord = addhifen(hiddenWord, randomPokemon)
+    wordDisplay.innerHTML = hiddenWord
+
+    console.log(hiddenWord) // Saída: "
 
     function addWord(word) {
       if (!guessedWords.includes(word)) {
