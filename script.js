@@ -35,7 +35,7 @@ async function getRandomPokemon() {
 }
 
 async function getPokeId(pokeId) {
-  const pokeIdUrl = `https://pokeapi.co/api/v2/pokemon/${1021}`
+  const pokeIdUrl = `https://pokeapi.co/api/v2/pokemon/${pokeId}`
 
   try {
     const response = await fetch(pokeIdUrl)
