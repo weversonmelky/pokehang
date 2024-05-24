@@ -1,5 +1,5 @@
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
   color: white;
@@ -21,16 +21,16 @@ header {
 main {
   background: #8c0738;
   width: 100%;
-  max-width: 450px;
-  margin: 56px auto 0px;
-  padding: 24px;
-  border-radius: 10px;
+  max-width: 30rem;
+  margin: 5.6rem auto 0px;
+  padding: 2.4rem;
+  border-radius: 1rem;
 }
 
 h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  letter-spacing: 2px;
-  word-spacing: 20px;
+  letter-spacing: 0.2rem;
+  word-spacing: 2rem;
   color: #f89912;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   padding: 1rem 1rem 2rem 1rem;
@@ -38,13 +38,13 @@ h1 {
 
 h2 {
   text-align: center;
-  padding: 20px;
+  padding: 2rem;
   padding-bottom: 1rem;
 }
 
 .word {
   letter-spacing: 0.2rem;
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: bold;
   text-align: center;
   padding: 1rem;
@@ -64,13 +64,12 @@ h2 {
 .pokemon-container {
   display: flex;
   justify-content: center;
-  justify-content: center;
   height: 9rem;
   width: 12rem;
   background-image: url(assets/images/background-pokedex.jpg);
   position: relative;
   border: solid white 8px;
-  border-radius: 10px;
+  border-radius: 1rem;
   overflow: hidden;
 }
 
@@ -91,16 +90,39 @@ h2 {
 .letter {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
-  height: 30px;
-  margin: 10px;
+  margin-bottom: 3rem;
 }
 
-.letter input{
+.letter input {
+  display: block;
+  padding:  0.5rem;
+  background: #c3d3d7;
   border: solid #6f6982 0.3rem;
   border-radius: 10px;
+  outline: none;
   color: black;
-  font-size: 20px;
+  font-size: 16px;
+  transition: all .6s;
+}
+
+.letter input:focus {
+  border: solid #aca3cb 0.3rem;
+  background: #ffffff;
+
+}
+
+button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all .2s;
+  filter: drop-shadow(2px);
+}
+
+button:hover{
+  transform: scale(1.1);
 }
 
 .results {
@@ -115,14 +137,10 @@ ul {
 li {
   margin-bottom: 7px;
   list-style: none;
-  transition: list-style-image 2s;
 }
 
 li:hover {
   list-style-image: url("assets/svg/triangle-right.svg");
-}
-
-li span {
 }
 
 .container-lettersTyped,
