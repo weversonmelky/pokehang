@@ -58,7 +58,7 @@ async function getPokeId(pokeId) {
     const guessButton = document.querySelector(".verify-button")
     const remainingChancesDisplay = document.querySelector("#chance")
     const guessedLettersDisplay = document.querySelector("#lettersTyped")
-    const alertMessage = document.querySelector("#alert")
+    const alertMessage = document.querySelector(".erro")
     const guessedWordsDisplay = document.querySelector("#wordsTyped")
     pokemonImage.src = urlimagePokemon
 
@@ -95,8 +95,16 @@ async function getPokeId(pokeId) {
         letterInputValue = ""
       } else {
         console.log(`A palavra "${word}" já foi tentada.`)
+        addErrorAnimation()
       }
       letterInput.value = ""
+    }
+
+    function addErrorAnimation() {
+      wordDisplay.classList.add("erro")
+      setTimeout(() => {
+        wordDisplay.classList.remove("erro")
+      }, 500)
     }
 
     function addLetter(letter) {
@@ -104,6 +112,8 @@ async function getPokeId(pokeId) {
       for (let i = 0; i < guessedLetters.length; i++) {
         if (guessedLetters[i] === letter) {
           isNewLetter = false
+          console.log("essa letra ja existe " + guessedLetters[i])
+          addErrorAnimation()
         }
       }
       if (!guessedLetters.includes(letter) && isNewLetter) {
@@ -111,8 +121,8 @@ async function getPokeId(pokeId) {
         guessedLettersDisplay.innerHTML = guessedLetters
           .join(", ")
           .toUpperCase()
-      } else {
-        alertMessage.innerHTML = "Você já tentou essa letra"
+
+      } else if (guessedLetters.includes(letter)) {
       }
     }
 
@@ -133,10 +143,9 @@ async function getPokeId(pokeId) {
 
       if (letterInputValue.trim() !== "") {
         if (containsSpecialCharacter || containsNumbers) {
-          alertMessage.innerHTML = "Contém caractere especial ou número"
           letterInput.value = ""
+          addErrorAnimation()        
         } else {
-          alertMessage.innerHTML = ""
           letterInput.value = ""
           if (letterAmount === 1) {
             if (randomPokemon.includes(letterInputValue)) {
@@ -151,31 +160,32 @@ async function getPokeId(pokeId) {
               hiddenWord = modifiedString
               if (hiddenWord === randomPokemon) {
                 letterInput.readOnly = true
-                alertMessage.innerHTML = "Você acertou"
+                //"Você acertou"
               }
               addLetter(letterInputValue)
             } else if (
               !randomPokemon.includes(letterInputValue) &&
               guessedLetters.indexOf(letterInputValue) === -1
             ) {
-              alertMessage.innerHTML = "Errou"
               addLetter(letterInputValue)
               decreaseChances(1)
+              addErrorAnimation()
+            } else if (guessedLetters.indexOf(letterInputValue)) {
+              addErrorAnimation()
+              console.log(" poha é essa")
             }
-          } else if (letterAmount > 1) {
+          } else if (letterAmount > 1 ) {
             if (letterInputValue === randomPokemon) {
               letterInput.readOnly = true
-              alertMessage.innerHTML = "Você acertou!"
+              //"Você acertou!"
               wordDisplay.innerHTML = randomPokemon.toLocaleUpperCase()
             } else if (letterInputValue !== randomPokemon) {
               addWord(letterInputValue)
-              alertMessage.innerHTML = "Palavra errada!"
+              addErrorAnimation()
             }
           }
         }
-      } else {
-        console.log("Nada digitado")
-      }
+      } 
     }
 
     guessButton.onclick = function () {
@@ -188,8 +198,7 @@ async function getPokeId(pokeId) {
       letterInput.value = ""
       if (remainingChances <= 0) {
         letterInput.readOnly = true
-        remainingChancesDisplay.innerHTML = "0"
-        alertMessage.innerHTML = "Você perdeu!"
+        // "Você perdeu!"
         wordDisplay.innerHTML = randomPokemon.toLocaleUpperCase()
       }
     }
