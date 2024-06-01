@@ -135,14 +135,18 @@ async function getPokeId(pokeId) {
     function verifyLetter(randomPokemon) {
       let letterInputValue = letterInput.value.toLowerCase()
       let letterAmount = letterInputValue.length
-      const specialCharacters = "!@#$%^&*()_-+={}[]|:;'<>,.?/~`\\"
-      const num = "0123456789"
-      let containsNumbers = num.includes(letterInputValue)
-      let containsSpecialCharacter =
-        specialCharacters.includes(letterInputValue)
+      const specialCharacters = "!@#$%^&*()_-+={}[]|:;'<>,.?/~`\\0123456789"
+      for (let i = 0; i < specialCharacters.length; i++) {
+        const item = specialCharacters[i]
+
+        if (letterInputValue.includes(item)) {
+          containsSpecialCharacter = true
+          console.log(containsSpecialCharacter)
+        }
+      }
 
       if (letterInputValue.trim() !== "") {
-        if (containsSpecialCharacter || containsNumbers) {
+        if (containsSpecialCharacter) {
           letterInput.value = ""
           addErrorAnimation()        
         } else {
@@ -172,7 +176,6 @@ async function getPokeId(pokeId) {
               addErrorAnimation()
             } else if (guessedLetters.indexOf(letterInputValue)) {
               addErrorAnimation()
-              console.log(" poha é essa")
             }
           } else if (letterAmount > 1 ) {
             if (letterInputValue === randomPokemon) {
