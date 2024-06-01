@@ -198,6 +198,7 @@ async function getPokeId(pokeId) {
       letterInput.value = ""
       if (remainingChances <= 0) {
         letterInput.readOnly = true
+      remainingChancesDisplay.innerHTML = 0
         // "Você perdeu!"
         wordDisplay.innerHTML = randomPokemon.toLocaleUpperCase()
       }
