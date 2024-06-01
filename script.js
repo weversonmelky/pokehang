@@ -136,9 +136,9 @@ async function getPokeId(pokeId) {
       let letterInputValue = letterInput.value.toLowerCase()
       let letterAmount = letterInputValue.length
       const specialCharacters = "!@#$%^&*()_-+={}[]|:;'<>,.?/~`\\0123456789"
+      let containsSpecialCharacter = false
       for (let i = 0; i < specialCharacters.length; i++) {
         const item = specialCharacters[i]
-
         if (letterInputValue.includes(item)) {
           containsSpecialCharacter = true
           console.log(containsSpecialCharacter)
